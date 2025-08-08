@@ -1,0 +1,1 @@
+# curtains-blinds-store
