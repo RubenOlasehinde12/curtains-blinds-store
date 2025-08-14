@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     # Custom Apps
     'pages',
-    'users'
+    'users',
+    'store'
+
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,5 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+

@@ -5,5 +5,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls')),
-    path('',include('pages.urls'))
+    path('', include('pages.urls')),
+    path('store/', include(('store.urls', 'store'), namespace='store')),  # <-- add namespace
 ]
