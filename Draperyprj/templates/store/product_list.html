@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Products</h1>
 <ul>
-  {% for product in object_list %}
+  {% for product in products %}
     <li>
       <a href="{{ product.get_absolute_url }}">{{ product.product_name }}</a>
       — €{{ product.price }}

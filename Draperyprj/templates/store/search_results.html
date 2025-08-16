@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock title %}
+{% block content %}
+<h1>Search Results</h1>
+   {% for product in products %}
+      <div>
+        <h3><a href="{{ product.get_absolute_url }}">{{ product.product_name}}</a></h3>
+        <p>Product: {{ store.product_name }}</p>
+        <p>Price: € {{ store.price }}</p>
+      </div>
+   {% endfor %}
+{% endblock content %}
