@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% extends "base.html" %}
 {% load static %}
 {% block title %}{{ product.product_name }}{% endblock %}
@@ -20,14 +19,3 @@
   <a class="btn btn-secondary mt-3" href="{% url 'store:product_list' %}">Back to products</a>
 </div>
 {% endblock %}
-=======
-{% extends 'base.html' %}
-{% block title %}{{ object.product_name}}{% endblock title %}
-{% block content %}
-<h2>{{ object.product_name }}</h2>
-<p>Name: {{ product.name }}</p>
-<p>Price: {{ product.price }}</p>
-<p>Stock: {{ product.stock}}</p>
-</div>
-{% endblock content %}
->>>>>>> 152faf7e524f2c4e4a1f15d1045c5adf668ec08c
