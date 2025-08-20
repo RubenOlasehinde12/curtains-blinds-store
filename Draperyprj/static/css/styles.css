@@ -1,0 +1,6 @@
+.product-detail-img {
+  width: 100%;
+  max-width: 600px;   /* cap the width */
+  height: auto;
+  border-radius: .5rem;
+}

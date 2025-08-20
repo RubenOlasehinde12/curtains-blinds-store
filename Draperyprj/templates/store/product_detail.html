@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ product.product_name }}{% endblock %}
+{% block content %}
+<div class="product-details">
+
+  {% if product.product_image %}
+    <img class="productimages" src="{{ product.product_image.url }}" alt="{{ product.product_name }}">
+  {% endif %}
+  <h2>{{ product.product_name }}</h2>
+  <p>Price: €{{ product.price }}</p>
+  <p>Stock: {{ product.stock }}</p>
+  <p>{{ product.description }}</p>
+
+  {% if product.category %}
+    <p>Category: {{ product.category.name }}</p>
+  {% endif %}
+
+  <a class="btn btn-secondary mt-3" href="{% url 'store:product_list' %}">Back to products</a>
+</div>
+{% endblock %}
