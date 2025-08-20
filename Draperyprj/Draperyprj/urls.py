@@ -1,12 +1,6 @@
 from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('django.contrib.auth.urls')),
-    path('users/', include('users.urls')),
-    path('store/', include(('store.urls', 'store'), namespace='store')),
-    path('', include('pages.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
