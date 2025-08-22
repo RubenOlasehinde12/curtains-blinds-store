@@ -41,12 +41,8 @@ INSTALLED_APPS = [
     # Custom Apps
     'pages',
     'users',
-<<<<<<< HEAD
     'store',
-    'shopping_cart',
-=======
-    'store'
->>>>>>> 152faf7e524f2c4e4a1f15d1045c5adf668ec08c
+    'cart'
 
 ]
 
@@ -132,7 +128,6 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-<<<<<<< HEAD
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
@@ -148,8 +143,6 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-=======
->>>>>>> 152faf7e524f2c4e4a1f15d1045c5adf668ec08c
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 

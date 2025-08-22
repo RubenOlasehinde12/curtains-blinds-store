@@ -1,0 +1,72 @@
+[
+    {
+        "model": "store.category",
+        "pk": 1,
+        "fields": {
+            "name": "blinds"
+        }
+    },
+    {
+        "model": "store.category",
+        "pk": 2,
+        "fields": {
+            "name": "curtains"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": "2011b228-fd3a-4f0d-a283-1b39f703b650",
+        "fields": {
+            "product_name": "WoodLux Light Oak Wooden Blinds",
+            "price": "12.00",
+            "description": "wooden blinds",
+            "stock": 5,
+            "product_image": "",
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": "47182f38-715e-499b-9938-7390be80da8e",
+        "fields": {
+            "product_name": "grey curtains",
+            "price": "13.00",
+            "description": "grey curtains LxW 23",
+            "stock": 4,
+            "product_image": "",
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": "ac236caa-967f-4b4b-ae47-31a03b5a5212",
+        "fields": {
+            "product_name": "beige curtains",
+            "price": "15.00",
+            "description": "beige long curtains made in Italy. limited stock",
+            "stock": 1,
+            "product_image": "product_images/curtains.png",
+            "categories": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": "f393e5cb-81b0-4574-a504-3c1dc9b9ab55",
+        "fields": {
+            "product_name": "black blinds",
+            "price": "32.00",
+            "description": "black blinds",
+            "stock": 4,
+            "product_image": "",
+            "categories": [
+                1
+            ]
+        }
+    }
+]

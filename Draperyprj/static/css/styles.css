@@ -1,6 +1,197 @@
-.product-detail-img {
-  width: 100%;
-  max-width: 600px;   /* cap the width */
-  height: auto;
-  border-radius: .5rem;
+/* navbar */
+.navbar {
+  background-color: #e2d3c1;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  margin-bottom: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Drapery logo */
+.navbar-brand {
+  font-weight: 500;
+  color: #2c2c2c;
+  font-size: 24px;
+  transition: color .2s;
+}
+
+.navbar-brand:hover { color:#7A532F; }
+
+/*Login Button */
+.login-button {
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  text-decoration: none;
+  transition: background-color .2s, color .2s, border-color .2s;
+  position: relative;
+  left: 1%;
+  
+}
+.login-button:hover {
+  background-color: #fff;
+  color: #c9b28d;
+  border-color: #2c2c2c;
+}
+
+/* Navbar Toggler */
+.navbar-toggler { border: none; font-size: 1.25rem; }
+.navbar-toggler:focus, .btn-close:focus { box-shadow: none; outline: none; }
+
+/* Home Page Links */
+.nav-link {
+  color: #2c2c2c;
+  font-weight: 500;
+  position: relative;
+}
+
+
+.nav-link:hover,
+.nav-link.active { color:#7A532F; }
+
+@media (min-width: 991px) {
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #7A532F;
+    visibility: hidden;
+    transition: width .2s;
+  }
+  .nav-link:hover::before,
+  .nav-link.active::before { width: 100%; visibility: visible; }
+}
+
+/* Offcanvas */
+#offcanvasNavbar, .offcanvasNavbar {
+  background: #efe4d2;
+  color: #2c2c2c;
+}
+#offcanvasNavbar .nav-link, .offcanvasNavbar .nav-link { color: #2c2c2c; }
+#offcanvasNavbar .nav-link:hover,
+#offcanvasNavbar .nav-link.active,
+.offcanvasNavbar .nav-link:hover,
+.offcanvasNavbar .nav-link.active { color: #7A532F; }
+#offcanvasNavbar .btn-close, .offcanvasNavbar .btn-close { filter: invert(0); opacity: .8; }
+
+/* Search button */
+.btn-outline-success {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border-color: #000000;
+}
+.btn-outline-success:hover {
+  color: #c9b28d;
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+/* Home Background Image + Offer Text */
+.hero {
+  background: url("../images/hero.png") center;
+  background-size:cover;
+  height: 90vh;
+  background-position: 50% 50%;
+  width: 100%;position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
+.hero .hero-copy{
+      font-size: 100%;
+      font-style: italic; 
+      position: relative;
+      right: 20%;
+      
+}
+
+/* Navbar dropdown */
+.navbar .dropdown-menu{
+  background-color: #e2d3c1;
+  border-color: #a88f6a;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+.navbar .dropdown-item{ color:#2c2c2c; }
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus{
+  background-color:#b9966e;
+  color:#fff;
+}
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:active{
+  background-color:#8B5E34;
+  color:#fff;
+}
+.navbar .dropdown-divider{ border-top-color: rgba(0,0,0,.15); }
+
+/* Offcanvas dropdown */
+.offcanvas .dropdown-menu{
+  background-color:#c9b28d;
+  border-color:#a88f6a;
+}
+.offcanvas .dropdown-item{ color:#2c2c2c; }
+.offcanvas .dropdown-item:hover,
+.offcanvas .dropdown-item:focus{
+  background-color:#b9966e;
+  color:#fff;
+}
+.offcanvas .dropdown-item:active{
+  background-color:#8B5E34;
+  color:#fff;
+}
+
+.product .card {
+  transition: transform .18s ease, box-shadow .18s ease;
+  will-change: transform;
+}
+.product .card:hover,
+.product .card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 .75rem 1.25rem rgba(0,0,0,.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product .card { transition: none; }
+}
+
+
+.product a.card:focus-visible {
+  outline: 2px solid #0d6efd; 
+  outline-offset: 2px;
+}
+
+/****Cart Page****/
+.my_custom_table {
+min-width: 400px;
+font-size: 14px;
+}
+.my_custom_thead {
+font-weight: normal;
+text-transform: uppercase;
+letter-spacing: .2em;
+background-color: #f8f9fa!important;
+}
+.custom_image {
+width: 100px;
+height: 100px;
+}
+.custom_a {
+text-decoration: none;
+}
+.custom_icon {
+text-decoration: none;
+color: #868e96 !important;
+}
+.my_custom_button {
+margin-top: 5px;
 }

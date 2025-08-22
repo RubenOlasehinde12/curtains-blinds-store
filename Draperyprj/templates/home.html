@@ -1,21 +1,80 @@
-<!--templates/home.html-->
-{% extends 'base.html' %}
-<<<<<<< HEAD
-{% load static %}
-{% block title %}Home{% endblock title %}
-{% block content %}
-        <h1>homepage</h1>
-        <div class="text-center my-4">
-        <img class="homecover" src="{% static 'images/drapery.homepage.png' %}"
-                alt="Drapery homepage" 
-                class="img-fluid mx-auto d-block" 
-                style="max-width: 300px;">
-  </div>
-  {% endblock content %}
-        
-=======
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
-<h1></h1>
-{% endblock content %}
->>>>>>> 152faf7e524f2c4e4a1f15d1045c5adf668ec08c
+<section class="hero">
+  <div class="hero-copy py-5 text-center">
+    <h4 class="mb-2">Trade-in offer</h4>
+    <h2 class="mb-1">Super value deals</h2>
+    <h1 class="mb-3">On all Curtains</h1>
+    <p class="mb-4">Save 20% on orders €75+. Limited-time offer.</p>
+    <a href="/store/" class="btn btn-dark btn-lg">Shop Now</a>
+  </div>
+</section>
+
+
+<section class="product">
+  <div class="container py-5">
+    <div class="row py-5">
+      <div class="col-lg-5 m-auto text-center">
+        <h1>Best Sellers</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Product 1 -->
+      <div class="col-lg-3 text-center">
+        <a class="text-decoration-none d-block" href="/66022692-19fa-4144-9231-3056083d2365//">
+          <div class="card border-0 bg-light mb-2">
+            <div class="card-body">
+              <img src="/media/product_images/ember_glow_terra_cotta.png" class="img-fluid" alt="Ember Glow - Terra Cotta">
+            </div>
+          </div>
+          <h6 class="mt-2 text-dark">Ember Glow - Terra Cotta</h6>
+          <p class="text-muted mb-0">€28.99</p>
+        </a>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-lg-3 text-center">
+        <a class="text-decoration-none d-block" href="/store/PUT-UUID-2-HERE/">
+          <div class="card border-0 bg-light mb-2">
+            <div class="card-body">
+              <img src="/media/product_images/curtain_3.png" class="img-fluid" alt="Pinch Pleat - Dove Grey">
+            </div>
+          </div>
+          <h6 class="mt-2 text-dark">Pinch Pleat - Dove Grey</h6>
+          <p class="text-muted mb-0">€28.99</p>
+        </a>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-lg-3 text-center">
+        <a class="text-decoration-none d-block" href="/store/PUT-UUID-3-HERE/">
+          <div class="card border-0 bg-light mb-2">
+            <div class="card-body">
+              <img src="/media/product_images/evergreen_shade_forest_green.png" class="img-fluid" alt="Evergreen Shade - Forest Green">
+            </div>
+          </div>
+          <h6 class="mt-2 text-dark">Evergreen Shade - Forest Green</h6>
+          <p class="text-muted mb-0">€28.99</p>
+        </a>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-lg-3 text-center">
+        <a class="text-decoration-none d-block" href="/store/PUT-UUID-4-HERE/">
+          <div class="card border-0 bg-light mb-2">
+            <div class="card-body">
+              <img src="/media/product_images/curtain_5.png" class="img-fluid" alt="Pinch Pleat - Midnight Navy">
+            </div>
+          </div>
+          <h6 class="mt-2 text-dark">Pinch Pleat - Midnight Navy</h6>
+          <p class="text-muted mb-0">€28.99</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
