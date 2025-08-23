@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ mode }} Product{% endblock %}
+{% block content %}
+<h2>{{ mode }} Product</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">{{ mode }}</button>
+  <a class="btn btn-secondary" href="{% url 'store:manager_products' %}">Cancel</a>
+</form>
+{% endblock %}

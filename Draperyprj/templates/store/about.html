@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">About Us</h2>
+    <p class="lead">
+        Welcome to <strong>Drapery</strong> — your go-to store for stylish and affordable curtains and blinds.
+    </p>
+
+    <p>
+        We started this project with a simple idea: to make it easy for people to find high-quality window 
+        coverings that fit their home and style. Our collection includes a wide variety of curtains and blinds, 
+        designed to match both classic and modern interiors.
+    </p>
+
+    <p>
+        This site is currently a demo project built with <strong>Django</strong>.
+    </p>
+
+    <hr class="my-4">
+
+    <h4>Our Mission</h4>
+    <p>To provide a seamless online shopping experience while demoing a modern eCommerce app.</p>
+
+    <h4>Our Values</h4>
+    <ul>
+        <li>✔ Simplicity — easy navigation and clean design</li>
+        <li>✔ Transparency — clear product info and pricing</li>
+        <li>✔ Innovation — built with modern web technologies</li>
+    </ul>
+
+    <div class="mt-4">
+        <a href="{% url 'store:contact' %}" class="btn btn-primary">Get in Touch</a>
+    </div>
+</div>
+{% endblock %}

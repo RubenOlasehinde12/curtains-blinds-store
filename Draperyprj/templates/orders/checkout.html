@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container py-4 checkout">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Checkout</h1>
+    <small class="text-muted">Secure payment via Stripe</small>
+  </div>
+
+  {% if messages %}
+    <div class="mb-3">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags|default:'info' }} mb-2">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="row g-4">
+    <!-- Left: form -->
+    <div class="col-lg-7">
+      <form method="post" id="checkout-form" class="card border-0 shadow-sm">
+        {% csrf_token %}
+        <div class="card-body">
+          {{ form.non_field_errors }}
+
+          <h2 class="h6 mb-3">Contact</h2>
+          <div class="row g-3">
+            <div class="col-md-8">
+              <label class="form-label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+              <div class="text-danger small">{{ form.email.errors }}</div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+              {{ form.phone }}
+              <div class="text-danger small">{{ form.phone.errors }}</div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <h2 class="h6 mb-2">Shipping method</h2>
+          <div class="form-check">
+            {{ form.shipping_method }}
+          </div>
+          <div class="text-danger small">{{ form.shipping_method.errors }}</div>
+
+          <hr class="my-4">
+
+          <h2 class="h6 mb-3">Address (optional)</h2>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.shipping_name.id_for_label }}">{{ form.shipping_name.label }}</label>
+              {{ form.shipping_name }}
+              <div class="text-danger small">{{ form.shipping_name.errors }}</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.shipping_country.id_for_label }}">Country</label>
+              {{ form.shipping_country }}
+              <div class="text-danger small">{{ form.shipping_country.errors }}</div>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="{{ form.shipping_address1.id_for_label }}">{{ form.shipping_address1.label }}</label>
+              {{ form.shipping_address1 }}
+              <div class="text-danger small">{{ form.shipping_address1.errors }}</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.shipping_city.id_for_label }}">{{ form.shipping_city.label }}</label>
+              {{ form.shipping_city }}
+              <div class="text-danger small">{{ form.shipping_city.errors }}</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.shipping_postcode.id_for_label }}">{{ form.shipping_postcode.label }}</label>
+              {{ form.shipping_postcode }}
+              <div class="text-danger small">{{ form.shipping_postcode.errors }}</div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.coupon.id_for_label }}">{{ form.coupon.label }}</label>
+              {{ form.coupon }}
+              <div class="text-danger small">{{ form.coupon.errors }}</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="{{ form.notes.id_for_label }}">{{ form.notes.label }}</label>
+              {{ form.notes }}
+              <div class="text-danger small">{{ form.notes.errors }}</div>
+            </div>
+          </div>
+
+          <div class="form-check my-3">
+            {{ form.agree }}
+            <label class="form-check-label" for="{{ form.agree.id_for_label }}">{{ form.agree.label }}</label>
+            <div class="text-danger small">{{ form.agree.errors }}</div>
+          </div>
+        </div>
+
+        <div class="card-footer bg-white d-grid gap-2">
+          <button class="btn btn-primary my_custom_button" type="submit">Pay with card</button>
+          <a class="btn btn-outline-secondary" href="{% url 'cart:cart_detail' %}">Back to cart</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right: summary -->
+    <div class="col-lg-5">
+      <div class="card border-0 shadow-sm checkout-summary">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Order summary</h5>
+          <div class="table-responsive">
+            <table class="table table-sm align-middle mb-3">
+              <thead class="table-light">
+                <tr>
+                  <th>Item</th>
+                  <th class="text-end">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for ci in cart_items %}
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      {% if ci.product.product_image %}
+                        <img src="{{ ci.product.product_image.url }}" alt="{{ ci.product.product_name }}" class="me-2 checkout-thumb">
+                      {% endif %}
+                      <div>
+                        <div class="fw-semibold small mb-0">{{ ci.product.product_name }}</div>
+                        <small class="text-muted">€{{ ci.product.price }} × {{ ci.quantity }}</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-end">€{{ ci.sub_total }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              <tfoot>
+                <tr class="table-light">
+                  <th>Total</th>
+                  <th class="text-end">€{{ total }}</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <small class="text-muted d-block">All prices EUR. You’ll finish payment securely on Stripe.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Reviews{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h1 class="h4 mb-3">Product Reviews</h1>
+
+  <div class="card border-0 shadow-sm mb-4">
+    <div class="card-body">
+      <h2 class="h6 mb-3">Write a review</h2>
+      <form method="post" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-4">
+          <label class="form-label">Product</label>
+          {{ form.product }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Your name</label>
+          {{ form.name }}
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Rating (1–5)</label>
+          {{ form.rating }}
+        </div>
+        <div class="col-12">
+          <label class="form-label">Comment</label>
+          {{ form.comment }}
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="list-group">
+    {% for r in reviews %}
+      <div class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <div>
+            <strong>{{ r.product.product_name }}</strong>
+            <span class="ms-2 text-warning">
+              {{ r.rating }} / 5
+            </span>
+          </div>
+          <small class="text-muted">{{ r.created|date:"d M Y H:i" }}</small>
+        </div>
+        <div class="mt-1">{{ r.comment|linebreaksbr }}</div>
+        <div class="mt-1"><small class="text-muted">by {{ r.name }}</small></div>
+        <div class="mt-2">
+          <a href="{{ r.product.get_absolute_url }}" class="btn btn-sm btn-outline-secondary">View product</a>
+        </div>
+      </div>
+    {% empty %}
+      <div class="text-muted">No reviews yet.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

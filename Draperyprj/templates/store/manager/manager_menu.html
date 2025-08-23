@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Manager{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-3">Manager</h2>
+
+  <div class="row g-3">
+    <div class="col-md-4">
+      <a href="{% url 'store:manager_products' %}" class="btn btn-primary w-100">Manage Products</a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'store:manager_product_create' %}" class="btn btn-outline-primary w-100">Create Product</a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'store:product_list' %}" class="btn btn-outline-secondary w-100">Back to Store</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

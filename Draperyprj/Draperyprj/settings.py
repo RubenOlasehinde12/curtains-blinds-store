@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'pages',
     'users',
     'store',
-    'cart'
-
+    'cart',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +143,11 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/users/redirect/'
 LOGOUT_REDIRECT_URL = 'home'
 
+
+STRIPE_SECRET_KEY = "sk_test_51Rz2DiC0kTCxZylw6ElrXYdS0W4tTyQSd8uDzYAebLMgDUBIgjnlaLpqkN5qEHcVUqMd2vIZSXdexbteJFPtYrKs00NEl7JcVg"
+STRIPE_PUBLISHABLE_KEY = "pk_test_51Rz2DiC0kTCxZylwSv9nVihmZ4OvI4HErQtwZIp6nnvm1JSoXmnzUL7Cf4auxAiJVMA4eoQrctmS74dutpZuxH0y00bkuBRWIV"
