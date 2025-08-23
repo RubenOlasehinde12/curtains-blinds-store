@@ -11,25 +11,16 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-
-# top of settings.py
 import os
 
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "django-insecure-#16)0*_d%76yl1%!zzn$ypdivg*vw*v$e+#ix^q^9$ef&4vp&@")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "pk_test_51Rz2DiC0kTCxZylwSv9nVihmZ4OvI4HErQtwZIp6nnvm1JSoXmnzUL7Cf4auxAiJVMA4eoQrctmS74dutpZuxH0y00bkuBRWIV")
 
-SECRET_KEY = 'django-insecure-#16)0*_d%76yl1%!zzn$ypdivg*vw*v$e+#ix^q^9$ef&4vp&@'
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
