@@ -11,16 +11,16 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 
-STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
-STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
+
+SECRET_KEY = 'django-insecure-#16)0*_d%76yl1%!zzn$ypdivg*vw*v$e+#ix^q^9$ef&4vp&@'
+
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -145,3 +145,7 @@ STATICFILES_FINDERS = [
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/users/redirect/'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+STRIPE_SECRET_KEY = "sk_test_51Rz2DiC0kTCxZylw6ElrXYdS0W4tTyQSd8uDzYAebLMgDUBIgjnlaLpqkN5qEHcVUqMd2vIZSXdexbteJFPtYrKs00NEl7JcVg"
+STRIPE_PUBLISHABLE_KEY = "pk_test_51Rz2DiC0kTCxZylwSv9nVihmZ4OvI4HErQtwZIp6nnvm1JSoXmnzUL7Cf4auxAiJVMA4eoQrctmS74dutpZuxH0y00bkuBRWIV"
