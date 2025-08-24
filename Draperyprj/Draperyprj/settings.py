@@ -11,7 +11,7 @@ STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "True").lower() == "true"
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "rubenola123.pythonanywhere.com"]
+ALLOWED_HOSTS = ["rubenola123.pythonanywhere.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -88,3 +88,4 @@ LOGIN_URL = "/users/login/"
 LOGIN_REDIRECT_URL = "/users/redirect/"
 LOGOUT_REDIRECT_URL = "home"
 PY
+
