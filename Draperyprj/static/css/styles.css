@@ -14,7 +14,9 @@
 }
 .navbar-brand:hover { color:#7A532F; }
 
-.login-button {
+/* Login button (supports old typo too, just in case) */
+.login-button,
+.login-buttton {
   background: #2c2c2c;
   color: #fff;
   font-size: 14px;
@@ -23,17 +25,26 @@
   border: 1px solid #000;
   text-decoration: none;
   transition: .2s;
-  position: relative;
-  left: 1%;
-}
-.login-button:hover {
-  background: #fff;
-  color: #c9b28d;
-  border-color: #2c2c2c;
+  display: inline-block;
 }
 
-.navbar-toggler { border: none; font-size: 1.25rem; }
-.navbar-toggler:focus, .btn-close:focus { box-shadow: none; outline: none; }
+/* Sign up button override */
+.signup-button {
+  background: #2c2c2c !important;
+  color: white !important;
+  border: 1px solid #000 !important;
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+  border-radius: 5px !important;
+  display: inline-block;
+}
+.signup-button:hover {
+  background: #c9b28d !important;
+  color: #fff !important;
+  border-color: #2c2c2c !important;
+}
+
+/* (Optional small tweak) space between them comes from .me-2 already */
 
 .nav-link {
   color: #2c2c2c;
@@ -52,7 +63,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 2p3x;
     background: #7A532F;
     visibility: hidden;
     transition: width .2s;
@@ -294,31 +305,28 @@
 .navbar .navbar-nav{
   flex:0 1 auto;
   display:flex;
-  gap:1rem;                          /* spacing between links */
+  gap:1rem;                          
   justify-content:flex-start !important;
 }
 
-/* Kill the big Bootstrap margin utility that’s shrinking the search */
 .navbar .nav-link.mx-lg-5{
   margin-left:0 !important;
   margin-right:0 !important;
 }
 
-/* Let the search claim remaining space (and not get squashed to nothing) */
+
 .navbar form[role="search"]{
-  flex:1 1 360px;                    /* grows, but won’t exceed max below */
+  flex:1 1 360px;          
   max-width:420px;
-  margin-left:auto;                  /* shove it to the right */
-  display:flex;
+  margin-left:auto;                  
   gap:8px;
 }
 .navbar form[role="search"] .form-control{
-  min-width:0;                       /* allow input to shrink gracefully */
-  height:38px;                       /* match button */
+  min-width:0;                       
+  height:38px;                       
   border-radius:10px;
 }
 
-/* Keep it friendly inside the offcanvas on mobile */
 @media (max-width: 991.98px){
   #offcanvasNavbar .offcanvas-body{ display:block; }
   #offcanvasNavbar form[role="search"]{
@@ -328,9 +336,7 @@
     margin:.5rem 0 0 0;
   }
 }
-/* Brand ↔ nav/search spacing (desktop only) */
 @media (min-width: 992px){
   .navbar .offcanvas-body{
-    margin-left: 20px;              /* tweak: 16–32px if you want more/less */
-  }
-}
+    margin-left: 20px;              
+}}

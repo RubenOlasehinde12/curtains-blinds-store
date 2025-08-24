@@ -24,7 +24,7 @@ class CartItem(models.Model):
         db_table = 'CartItem'
 
     def sub_total(self):
-        return self.product.price * self.quantity   # fixed: use product.price, not self.price
+        return self.product.price * self.quantity  
 
     def __str__(self):
         return str(self.product)

@@ -4,9 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.conf import settings
 from django.contrib import messages
-
 from store.models import Product
-from .models import Cart, CartItem  # <- import Cart (FK) and CartItem
+from .models import Cart, CartItem  
 
 import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -20,7 +19,7 @@ def _session_key(request):
 
 def _get_cart(request):
     sk = _session_key(request)
-    cart, _ = Cart.objects.get_or_create(cart_id=sk)  # your Cart has cart_id (string)
+    cart, _ = Cart.objects.get_or_create(cart_id=sk)  
     return cart
 
 

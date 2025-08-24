@@ -29,7 +29,7 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
             <li class="nav-item"><a class="nav-link mx-lg-5" href="{% url 'home' %}">Home</a></li>
-            <li class="nav-item"><a class="nav-link mx-lg-5" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"><a class="nav-link mx-lg-5" href="{% url 'store:about' %}">About</a></li>
             <li class="nav-item"><a class="nav-link mx-lg-5" href="{% url 'store:reviews_list' %}">Reviews</a></li>
             <li class="nav-item"><a class="nav-link mx-lg-5" href="{% url 'cart:basket' %}">Basket</a></li>
 
@@ -63,7 +63,10 @@
                 <button type="submit" class="btn btn-danger btn-sm">Logout</button>
               </form>
             {% else %}
-              <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login</a>
+                <div>
+                      <a href="{% url 'login' %}" class="login-button me-2">Login</a>
+                      <a href="{% url 'users:signup' %}" class="btn btn-outline-primary btn-sm signup-button">Sign up</a>
+                  </div>
             {% endif %}
           </div>
         </div>
