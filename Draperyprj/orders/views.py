@@ -56,7 +56,7 @@ def checkout(request):
     if request.method == "POST":
         form = CheckoutForm(request.POST)
         if form.is_valid():
-            # server-side shipping & coupon
+           
             method = form.cleaned_data["shipping_method"]
             shipping_cost = Decimal("0.00") if method == "standard" else Decimal("6.99")
 
@@ -69,7 +69,7 @@ def checkout(request):
                 return redirect("cart:cart_detail")
 
             try:
-                # one line item (your existing pattern)
+               
                 session = stripe.checkout.Session.create(
                     mode="payment",
                     payment_method_types=["card"],
@@ -88,7 +88,7 @@ def checkout(request):
                 return redirect(session.url, code=303)
             except Exception as e:
                 messages.error(request, f"Stripe error: {e}")
-        # invalid form falls through to render with errors
+    
     else:
         initial = {"email": getattr(request.user, "email", "")}
         form = CheckoutForm(initial=initial)
@@ -97,5 +97,5 @@ def checkout(request):
     return render(request, "orders/checkout.html", {
         "form": form,
         "cart_items": cart_items,
-        "total": subtotal,  # base subtotal; template can show live calc if you want
+        "total": subtotal,  
     })

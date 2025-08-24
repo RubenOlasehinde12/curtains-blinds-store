@@ -6,7 +6,7 @@ from cart.models import CartItem
 
 class CartTests(TestCase):
     def setUp(self):
-        # make sure a session exists
+        
         self.client.get(reverse("cart:cart_detail"))
         self.p = Product.objects.create(
             product_name="Curtain A",
@@ -22,12 +22,12 @@ class CartTests(TestCase):
         self.assertContains(r, "Curtain A")
 
     def test_decrement_and_remove(self):
-        # add twice
+       
         self.client.get(reverse("cart:add_cart", args=[self.p.pk]))
         self.client.get(reverse("cart:add_cart", args=[self.p.pk]))
-        # 2 -> 1
+   
         self.client.get(reverse("cart:decrement_cart", args=[self.p.pk]))
-        # 1 -> delete
+      
         self.client.get(reverse("cart:decrement_cart", args=[self.p.pk]))
         self.assertFalse(CartItem.objects.filter(product=self.p).exists())
 
